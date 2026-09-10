@@ -4,7 +4,7 @@ GameNest es una plataforma web para registrar, organizar, calificar y descubrir 
 
 ## Estado del proyecto
 
-El monorepo, Nx, las aplicaciones de frontend y backend, Tailwind CSS y ESLint ya estan configurados. PostgreSQL local se ejecuta mediante Docker Compose; TypeORM y las migraciones se incorporaran en la siguiente fase.
+El monorepo, Nx, las aplicaciones de frontend y backend, Tailwind CSS y ESLint ya estan configurados. PostgreSQL local se ejecuta mediante Docker Compose y el backend ya tiene configurada la conexion con TypeORM; las migraciones se incorporaran en la siguiente fase.
 
 ## Alcance del MVP
 
