@@ -1,0 +1,23 @@
+# Dependencies and package-manager artifacts
+node_modules/
+.pnpm-store/
+
+# Build and test output
+dist/
+coverage/
+.turbo/
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+pnpm-debug.log*
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
