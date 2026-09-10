@@ -4,7 +4,7 @@ GameNest es una plataforma web para registrar, organizar, calificar y descubrir 
 
 ## Estado del proyecto
 
-El repositorio se encuentra en su configuracion inicial. El monorepo, la configuracion de pnpm y las reglas de trabajo ya existen; las aplicaciones de frontend y backend aun no han sido generadas.
+El monorepo, Nx, las aplicaciones de frontend y backend, Tailwind CSS y ESLint ya estan configurados. PostgreSQL local se ejecuta mediante Docker Compose; TypeORM y las migraciones se incorporaran en la siguiente fase.
 
 ## Alcance del MVP
 
@@ -49,7 +49,7 @@ GameNest/
 - Node.js 22 o superior.
 - pnpm 11 o superior.
 - Git.
-- Docker Desktop, cuando se configure PostgreSQL y los contenedores.
+- Docker Desktop.
 
 ## Comandos
 
@@ -68,6 +68,27 @@ pnpm test
 pnpm typecheck
 pnpm lint
 ```
+
+## Base de datos local
+
+El entorno local usa PostgreSQL 17 mediante Docker Compose. Crea
+`apps/backend/.env` a partir de `apps/backend/.env.example` y define una
+contrasena local antes de levantar la base de datos:
+
+```bash
+docker compose up -d database
+```
+
+Para comprobar su estado:
+
+```bash
+docker compose ps
+```
+
+pgAdmin queda disponible en `http://localhost:5050`. Inicia sesion con las
+variables `PGADMIN_DEFAULT_EMAIL` y `PGADMIN_DEFAULT_PASSWORD` de
+`apps/backend/.env`. Para registrar la base de datos, usa `database` como host,
+el puerto `5432`, y las credenciales `POSTGRES_USER` y `POSTGRES_PASSWORD`.
 
 ## Principios del dominio
 
