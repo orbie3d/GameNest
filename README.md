@@ -66,10 +66,8 @@ pnpm dev
 pnpm build
 pnpm test
 pnpm typecheck
+pnpm lint
 ```
-
-El comando de lint se incorporara cuando la configuracion compartida de ESLint
-forme parte de la base tecnica.
 
 ## Principios del dominio
 
