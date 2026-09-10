@@ -6,6 +6,7 @@ node_modules/
 dist/
 coverage/
 .turbo/
+out-tsc/
 
 # Environment files and secrets
 .env
@@ -21,3 +22,12 @@ pnpm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+
+
+
+.nx/cache
+.nx/workspace-data
+.nx/migrate-runs
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
+test-output

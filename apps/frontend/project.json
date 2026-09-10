@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "sourceRoot": "apps/frontend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "apps/frontend/dist",
+        "configFile": "apps/frontend/vite.config.mts",
+        "tsConfig": "apps/frontend/tsconfig.app.json"
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "frontend:build"
+      }
+    }
+  }
+}

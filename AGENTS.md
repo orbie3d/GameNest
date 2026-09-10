@@ -44,9 +44,9 @@ explicitly created for that environment.
 - Use workspace scripts from the root when available:
   - `pnpm dev`
   - `pnpm build`
-  - `pnpm lint`
   - `pnpm test`
   - `pnpm typecheck`
+- Add and use `pnpm lint` once the repository linter is configured.
 - Add dependencies to the workspace that uses them. Add a root dependency only
   when it configures or operates the whole monorepo.
 - Keep `pnpm-lock.yaml` synchronized with dependency changes.

@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "sourceRoot": "apps/backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "apps/backend/dist",
+        "main": "apps/backend/src/main.ts",
+        "tsConfig": "apps/backend/tsconfig.app.json",
+        "assets": ["apps/backend/src/assets"],
+        "webpackConfig": "apps/backend/webpack.config.js",
+        "generatePackageJson": false,
+        "optimization": false,
+        "sourceMap": true
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "backend:build",
+        "runBuildTargetDependencies": false
+      }
+    }
+  }
+}

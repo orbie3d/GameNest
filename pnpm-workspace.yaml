@@ -1,3 +1,10 @@
 packages:
   - apps/*
   - packages/*
+allowBuilds:
+  '@parcel/watcher': set this to true or false
+  nx: true
+  unrs-resolver: false
+  esbuild: false
+  "@swc/core": false
+  "@nestjs/core": false

@@ -64,10 +64,12 @@ Cuando frontend y backend esten creados, los comandos principales seran:
 ```bash
 pnpm dev
 pnpm build
-pnpm lint
 pnpm test
 pnpm typecheck
 ```
+
+El comando de lint se incorporara cuando la configuracion compartida de ESLint
+forme parte de la base tecnica.
 
 ## Principios del dominio
 

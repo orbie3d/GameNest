@@ -1,0 +1,11 @@
+{
+  "name": "frontend",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.1",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.2.2"
+  }
+}
