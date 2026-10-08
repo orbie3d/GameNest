@@ -32,6 +32,24 @@ Reviews are independent: a user can rate a game without writing a review.
 - `infra/docker`: application Dockerfiles and infrastructure support files.
 - `tools/scripts`: repository automation scripts.
 
+Use and respect this repository structure for every change. Before creating
+files or directories, inspect the existing folders in the affected application
+and follow their organization and naming conventions.
+
+- Place each file in the existing directory that matches its responsibility.
+  Reuse the established feature or domain module instead of creating a parallel
+  structure.
+- Keep frontend features under `apps/frontend/src/features`, application setup
+  under `apps/frontend/src/app`, and reusable presentation components under
+  `apps/frontend/src/components`.
+- Place backend functionality in the corresponding domain module within
+  `apps/backend/src`, following the existing module layout.
+- Create new subdirectories only when required by the functionality being
+  implemented. Do not scaffold unused folders for future features.
+- Do not rename, move, or reorganize established directories unless the user
+  explicitly requests a structural change. For such changes, update affected
+  imports, workspace configuration, scripts, and documentation together.
+
 Keep frontend and backend code separate. Shared packages must not depend on
 React, NestJS, TypeORM, browser APIs, or server-only APIs unless a package is
 explicitly created for that environment.
