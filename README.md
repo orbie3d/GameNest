@@ -4,7 +4,14 @@ GameNest es una plataforma web para registrar, organizar, calificar y descubrir 
 
 ## Estado del proyecto
 
-El monorepo, Nx, las aplicaciones de frontend y backend, Tailwind CSS y ESLint ya estan configurados. PostgreSQL local se ejecuta mediante Docker Compose y el backend ya tiene configurada la conexion con TypeORM; las migraciones se incorporaran en la siguiente fase.
+El monorepo, Nx, las aplicaciones base, Tailwind CSS y ESLint están configurados. El backend incluye autenticación con registro, login, renovación y revocación de sesiones, consulta de cuenta actual, Swagger y migraciones TypeORM para usuarios y sesiones. El frontend conserva las pantallas generadas; catálogo, onboarding, biblioteca, favoritos, reseñas y recomendaciones siguen pendientes.
+
+## Documentación y planificación
+
+- [Documentación de la aplicación](docs/product/application.md): alcance, reglas, arquitectura general, estado actual y decisiones pendientes.
+- [Roadmap y tareas principales](docs/product/roadmap.md): fases del MVP, tareas, dependencias y criterios de aceptación.
+- [Índice de documentación](docs/README.md): organización y enlaces de referencia.
+- [API de autenticación y Swagger](docs/api/authentication.md): cómo configurar, ejecutar y probar los primeros endpoints.
 
 ## Alcance del MVP
 
@@ -46,7 +53,7 @@ GameNest/
 
 ## Requisitos
 
-- Node.js 22 o superior.
+- Node.js 22.12 o superior.
 - pnpm 11 o superior.
 - Git.
 - Docker Desktop.
@@ -59,7 +66,7 @@ Instalar dependencias del monorepo:
 pnpm install
 ```
 
-Cuando frontend y backend esten creados, los comandos principales seran:
+Ejecutar los comandos principales desde la raíz del repositorio:
 
 ```bash
 pnpm dev
@@ -84,6 +91,19 @@ Para comprobar su estado:
 ```bash
 docker compose ps
 ```
+
+Preparar la autenticación y aplicar el esquema antes de iniciar el backend:
+
+```bash
+pnpm auth:configure-local
+pnpm migration:run
+pnpm dev
+```
+
+Swagger estará disponible en [http://localhost:3000/api/v1/docs](http://localhost:3000/api/v1/docs).
+La especificación está en [http://localhost:3000/api/v1/openapi.json](http://localhost:3000/api/v1/openapi.json).
+Las pruebas reales de autenticación y migraciones se ejecutan con
+`pnpm test:backend:integration` en un contenedor PostgreSQL separado y descartable.
 
 pgAdmin queda disponible en `http://localhost:5050`. Inicia sesion con las
 variables `PGADMIN_DEFAULT_EMAIL` y `PGADMIN_DEFAULT_PASSWORD` de

@@ -16,6 +16,9 @@ module.exports = {
   transform: {
     '^.+\\.[tj]s$': ['@swc/jest', swcJestConfig]
   },
+  // Recent Nest support packages publish ESM; transform them through SWC for Jest.
+  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\](?!@nestjs[/\\\\]|\\.pnpm[/\\\\]@nestjs\\+)'],
+  moduleNameMapper: { '^(\\.{1,2}/.*)\\.js$': '$1' },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: 'test-output/jest/coverage'
 };

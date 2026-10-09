@@ -1,5 +1,6 @@
 const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin');
 const { join } = require('path');
+const { dependencies } = require('./package.json');
 
 module.exports = {
   output: {
@@ -12,6 +13,8 @@ module.exports = {
   plugins: [
     new NxAppWebpackPlugin({
       target: 'node',
+      // Keep workspace dependencies and native Argon2 bindings outside the bundle.
+      externalDependencies: Object.keys(dependencies),
       compiler: 'tsc',
       main: './src/main.ts',
       tsConfig: './tsconfig.app.json',
