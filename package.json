@@ -4,14 +4,19 @@
   "private": true,
   "packageManager": "pnpm@11.19.0",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.12"
   },
   "scripts": {
     "dev": "nx run-many -t serve --projects=frontend,backend --parallel=2",
     "build": "nx run-many -t build --projects=frontend,backend",
     "test": "nx run-many -t test --projects=frontend,backend",
     "typecheck": "nx run-many -t typecheck --projects=frontend,backend",
-    "lint": "eslint \"apps/**/*.{ts,tsx}\""
+    "lint": "eslint \"apps/**/*.{ts,tsx}\"",
+    "migration:run": "pnpm --filter backend migration:run",
+    "migration:revert": "pnpm --filter backend migration:revert",
+    "migration:create": "pnpm --filter backend migration:create",
+    "auth:configure-local": "node tools/scripts/configure-local-auth.mjs",
+    "test:backend:integration": "node tools/scripts/test-auth-integration.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -50,7 +55,7 @@
     "jsdom": "^27.1.0",
     "nx": "23.2.0",
     "ts-jest": "^29.4.7",
-    "ts-node": "10.9.1",
+    "ts-node": "10.9.2",
     "tslib": "^2.3.0",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.70.0",
